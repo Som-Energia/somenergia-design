@@ -1,0 +1,27 @@
+{
+  "name": "@somenergia/brand",
+  "version": "1.0.0",
+  "description": "Som Energia logos and typography assets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Som-Energia/somenergia-design.git",
+    "directory": "packages/brand"
+  },
+  "files": [
+    "fonts/",
+    "logos/",
+    "favicons/",
+    "fonts.css",
+    "LICENSE*"
+  ],
+  "exports": {
+    "./fonts.css": "./fonts.css",
+    "./fonts/*": "./fonts/*",
+    "./logos/*": "./logos/*",
+    "./favicons/*": "./favicons/*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}

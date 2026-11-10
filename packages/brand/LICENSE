@@ -1,0 +1,26 @@
+Som Energia Brand — Licensing
+
+This package contains resources subject to different licensing terms.
+
+Fonts
+-----
+The Outfit font files in fonts/ are distributed under the SIL Open
+Font License 1.1. See LICENSE-OUTFIT for the original copyright notice
+and complete license.
+
+Logos
+-----
+The files in logos/ and favicons/ are subject to the restricted usage
+terms in LICENSE-LOGO. Neither the font license nor the software
+license grants permission to use these logos.
+
+Package-authored CSS and documentation
+-------------------------------------
+Unless otherwise identified, package-authored CSS and documentation
+are distributed under the GNU Affero General Public License,
+Version 3 only (SPDX: AGPL-3.0-only). See LICENSE-AGPL.
+
+Third-party materials retain their respective licenses.
+
+Public availability of this package does not grant permission to
+use the Som Energia name or logos.
