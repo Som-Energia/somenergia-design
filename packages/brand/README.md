@@ -45,15 +45,52 @@ an external font service.
 
 ## Logos
 
-Logo assets are available through:
+The logo is available in three variants in `@somenergia/brand/logos/`:
 
-```text
-@somenergia/brand/logos/logo.svg
-```
+| File            | Color          | Use                                    |
+| --------------- | -------------- | -------------------------------------- |
+| `logo.svg`      | `#0B2E34`      | Light backgrounds                      |
+| `logo-dark.svg` | `#F0F3EC`      | Dark backgrounds                       |
+| `logo-mono.svg` | `currentColor` | Inline SVG that inherits the CSS color |
 
 Resolve or copy these assets using your project's build tooling, or
 load them from a public CDN as described in
 [Using without npm](#using-without-npm).
+
+### Light and dark themes
+
+To follow the system color scheme with an `<img>`, use `<picture>`:
+
+```html
+<picture>
+  <source
+    srcset="/path/to/logo-dark.svg"
+    media="(prefers-color-scheme: dark)"
+  />
+  <img src="/path/to/logo.svg" alt="Som Energia" />
+</picture>
+```
+
+`<img>` cannot see the page's CSS, so it only follows the system
+preference. To follow a manual theme switch (such as
+`<html data-theme="dark">`), inline `logo-mono.svg` and set its color
+with CSS. For example, in a React project using
+[SVGR](https://react-svgr.com/) through `vite-plugin-svgr`:
+
+```jsx
+import Logo from "@somenergia/brand/logos/logo-mono.svg?react";
+
+<Logo role="img" aria-label="Som Energia" className="logo" />;
+```
+
+```css
+.logo {
+  color: var(--som-color-text);
+}
+```
+
+`--som-color-text` comes from `@somenergia/design-tokens` and switches
+between light and dark automatically. Any other CSS color works too.
 
 Use logos only within the scope authorized by Som Energia and follow
 the applicable brand guidelines.
@@ -94,6 +131,10 @@ Logo:
   alt="Som Energia"
 />
 ```
+
+Replace `logo.svg` with `logo-dark.svg` for dark backgrounds.
+`logo-mono.svg` relies on `currentColor`, which an `<img>` cannot
+inherit, so it renders black when loaded this way.
 
 The same paths work on unpkg, for example
 `https://unpkg.com/@somenergia/brand@1.0.0/logos/logo.svg`.
