@@ -69,6 +69,46 @@ coordinates those scripts without duplicating their implementation.
 
 Directories containing only static resources do not need a `package.json`.
 
+## Testing packages locally
+
+npm cannot install a package from a subdirectory of a git repository, so
+use one of these options to try unpublished changes in a consuming project.
+
+### From a tarball
+
+This installs exactly what would be published to npm, including generated
+files such as `dist/`:
+
+```bash
+make install
+cd packages/design-tokens
+npm pack    # writes somenergia-design-tokens-<version>.tgz
+```
+
+Then, in the consuming project:
+
+```bash
+npm install /path/to/somenergia-design/packages/design-tokens/somenergia-design-tokens-<version>.tgz
+```
+
+Run `npm pack` and install the tarball again after every change.
+
+### From the package directory
+
+For quicker iteration, install the package directory directly. npm links
+it, so changes are visible straight away:
+
+```bash
+npm install /path/to/somenergia-design/packages/design-tokens
+```
+
+Run `npm run build` in the package after changing anything that generates
+`dist/`. This option ignores the `files` field in `package.json`, so check
+the package with a tarball before releasing.
+
+Do not commit local paths or release asset URLs in a consuming project's
+`package.json`. Switch back to a published version before merging.
+
 ## Continuous integration
 
 GitHub Actions workflows live in the root `.github/workflows/` directory.
