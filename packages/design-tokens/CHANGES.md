@@ -17,3 +17,4 @@
   their surface.
 - TypeScript declarations (`dist/index.d.ts`), generated from `src/index.js`
   and exposed through `exports`.
+- Include an AI consumer guide with integration and validation instructions.

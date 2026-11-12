@@ -11,3 +11,4 @@
   restricted usage terms for logos and favicons (`LICENSE-LOGO`).
 - Logo variants for dark backgrounds (`logos/logo-dark.svg`) and for
   inline use that inherits the CSS color (`logos/logo-mono.svg`).
+- Include an AI consumer guide with integration, licensing, and validation instructions.

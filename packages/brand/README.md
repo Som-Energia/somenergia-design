@@ -2,6 +2,12 @@
 
 Shared logos and typography assets for authorized Som Energia projects.
 
+## AI agents
+
+See the [consumer guide](./docs/consumer-guide.md) for integration instructions.
+It ships with the npm package; consuming projects can reference it from their
+own `AGENTS.md`. Agents may not discover dependency documentation automatically.
+
 ## Installation
 
 ```bash

@@ -12,6 +12,7 @@
     "logos/",
     "favicons/",
     "fonts.css",
+    "docs/consumer-guide.md",
     "LICENSE*"
   ],
   "exports": {

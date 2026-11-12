@@ -23,7 +23,8 @@
   ],
   "files": [
     "src/index.js",
-    "dist"
+    "dist",
+    "docs/consumer-guide.md"
   ],
   "exports": {
     ".": {

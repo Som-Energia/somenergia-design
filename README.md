@@ -109,6 +109,31 @@ the package with a tarball before releasing.
 Do not commit local paths or release asset URLs in a consuming project's
 `package.json`. Switch back to a published version before merging.
 
+## AI agent guidance
+
+`AGENTS.md` contains instructions for developing this repository. Consumer
+instructions are separate and included in each published npm package:
+
+- [Design tokens consumer guide](./packages/design-tokens/docs/consumer-guide.md)
+- [Brand consumer guide](./packages/brand/docs/consumer-guide.md)
+
+Agents do not necessarily discover guides inside dependencies automatically.
+Add the following to a consuming project's `AGENTS.md`, keeping only entries
+for installed packages and adjusting paths if its package manager requires it:
+
+```markdown
+## Som Energia design resources
+
+Before changing styles or brand assets, read the relevant installed guides:
+- `node_modules/@somenergia/design-tokens/docs/consumer-guide.md`
+- `node_modules/@somenergia/brand/docs/consumer-guide.md`
+
+Follow these guides for package usage and this project's instructions for
+local development and validation.
+```
+
+These are documentation files to read from disk, not JavaScript import paths.
+
 ## Continuous integration
 
 GitHub Actions workflows live in the root `.github/workflows/` directory.
