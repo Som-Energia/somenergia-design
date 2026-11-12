@@ -25,18 +25,14 @@ function declarations(values, indent) {
 }
 
 export default function tokensToCss(tokens) {
-  const shared = {
-    font: tokens.font,
-    radius: tokens.radius,
-    space: tokens.space,
-  }
-  const dark = { color: tokens.color.dark }
+  const { color, ...shared } = tokens
+  const dark = { color: color.dark }
 
   return `/* Generated from @somenergia/design-tokens src/index.js. Do not edit. */
 :root {
   color-scheme: light;
 ${declarations(shared, "  ")}
-${declarations({ color: tokens.color.light }, "  ")}
+${declarations({ color: color.light }, "  ")}
 }
 
 :root[data-theme="dark"] {

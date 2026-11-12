@@ -8,11 +8,68 @@
 // Values must be literal (no var(...)) and use comma separated rgba()
 // because MUI color helpers such as alpha() or getContrastText() parse them.
 
+// Font sizes and text styles come from the Figma text styles, converted from
+// px to rem (16px base), line heights to unitless ratios and letter spacing to
+// em so they scale with the font size.
+
+const fontSize = {
+  xs: "0.75rem", // 12px
+  sm: "0.875rem", // 14px
+  md: "1rem", // 16px
+  lg: "1.3125rem", // 21px
+  xl: "1.75rem", // 28px
+  "2xl": "2.25rem", // 36px
+  "3xl": "2.875rem", // 46px
+  "4xl": "4rem", // 64px
+  "5xl": "6rem", // 96px
+}
+
+const fontWeight = {
+  regular: 400,
+  medium: 500,
+  bold: 700,
+}
+
 const font = {
   family:
     'Outfit, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   familyMono:
     'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+  size: fontSize,
+  weight: fontWeight,
+}
+
+/**
+ * @param {keyof typeof fontSize} size
+ * @param {number} lineHeight
+ * @param {string} [letterSpacing]
+ * @param {keyof typeof fontWeight} [weight]
+ */
+function textStyle(size, lineHeight, letterSpacing = "0", weight = "regular") {
+  return {
+    fontSize: fontSize[size],
+    fontWeight: fontWeight[weight],
+    lineHeight,
+    letterSpacing,
+  }
+}
+
+// Bold variants are not separate styles: combine a style with font.weight.bold.
+const text = {
+  display1: textStyle("5xl", 0.92, "-0.042em"),
+  display2: textStyle("4xl", 0.89, "-0.039em"),
+  h1: textStyle("3xl", 0.96, "-0.039em"),
+  h2: textStyle("2xl", 1.03, "-0.028em"),
+  h3: textStyle("xl", 1.14, "-0.036em"),
+  h4: textStyle("lg", 1.14, "-0.04em"),
+  bodyM: textStyle("md", 1.19),
+  bodyS: textStyle("sm", 1.21),
+  bodyXs: textStyle("xs", 1.17),
+  label: textStyle("md", 1.19, "0", "medium"),
+  buttonM: textStyle("sm", 1.2),
+  buttonS: textStyle("xs", 1.17),
+  placeholder: textStyle("sm", 1),
+  formHelper: textStyle("xs", 1),
 }
 
 const radius = {
@@ -68,6 +125,15 @@ const lightColor = {
   danger: "#dc3545",
   dangerSurface: "#fbe3e5",
   dangerText: "#a71d2a",
+  warning: "#ff632b",
+  warningSurface: "#ffe8dc",
+  warningText: "#8a3200",
+  success: "#0c4c27",
+  successSurface: "#e8f8cc",
+  successText: "#0c4c27",
+  info: "#afb5e8",
+  infoSurface: "#e8eafa",
+  infoText: "#363d8a",
   codeText: "#0c4c27",
   codeBackground: "#f0f3ec",
   focusRing: "#0b2e34",
@@ -105,6 +171,13 @@ const darkColor = {
   danger: "#ff7b86",
   dangerSurface: "#3d1418",
   dangerText: "#ffb3ba",
+  warningSurface: "#3d2210",
+  warningText: "#ffcdb5",
+  success: "#cdff80",
+  successSurface: "#16351c",
+  successText: "#cdff80",
+  infoSurface: "#1e2450",
+  infoText: "#d4d8f5",
   codeText: "#cdff80",
   codeBackground: "rgba(205, 255, 128, 0.1)",
   focusRing: "#cdff80",
@@ -125,6 +198,7 @@ const darkColor = {
 
 const tokens = {
   font,
+  text,
   radius,
   space,
   color: {

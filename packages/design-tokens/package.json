@@ -26,13 +26,20 @@
     "dist"
   ],
   "exports": {
-    ".": "./src/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.js"
+    },
     "./tokens.css": "./dist/tokens.css"
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "node scripts/build-css.js",
+    "build": "npm run build:tokens && npm run build:types",
+    "build:tokens": "node scripts/build-css.js",
+    "build:types": "tsc -p tsconfig.json",
     "test": "vitest",
-    "test:ci": "vitest run",
+    "test:ci": "vitest run && npm run test:types",
+    "test:types": "npm run build:types && tsc -p types-test/tsconfig.json",
     "lint": "eslint ./src ./scripts",
     "lint:fix": "eslint ./src ./scripts --fix",
     "format": "prettier --write .",
@@ -43,6 +50,7 @@
     "@somenergia/frontend-config": "github:Som-Energia/frontend-config#v1.1.2",
     "eslint": "9.39.4",
     "prettier": "3.8.3",
+    "typescript": "7.0.2",
     "vitest": "5.1.0"
   },
   "engines": {
