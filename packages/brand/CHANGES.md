@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 19-11-2026
+
+- Check CI package publication
+
 ## 1.0.0 10-11-2026
 
 - First release.
