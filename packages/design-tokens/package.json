@@ -1,6 +1,6 @@
 {
   "name": "@somenergia/design-tokens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Som Energia design tokens: colors, typography, radii and spacing as JS and CSS custom properties",
   "license": "AGPL-3.0-only",
   "homepage": "https://github.com/Som-Energia/somenergia-design#readme",
