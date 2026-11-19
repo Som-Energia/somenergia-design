@@ -145,6 +145,16 @@ make install
 make check
 ```
 
+## Dependency updates
+
+Dependabot checks npm dependencies in `packages/design-tokens/` and GitHub
+Actions weekly. Configuration lives in `.github/dependabot.yml`.
+
+Minor and patch updates are grouped by ecosystem; major updates get separate
+pull requests. Updates require review and are not automatically merged. This
+configuration does not update packages in consuming repositories or publish
+releases.
+
 ## Adding a package
 
 1. Create a directory under `packages/`.
